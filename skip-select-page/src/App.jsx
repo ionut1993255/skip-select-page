@@ -1,5 +1,7 @@
+import AppLayout from "./ui/AppLayout.jsx";
+
 function App() {
-  return <h1>Hello, Skip Select Page!</h1>;
+  return <AppLayout />;
 }
 
 export default App;
