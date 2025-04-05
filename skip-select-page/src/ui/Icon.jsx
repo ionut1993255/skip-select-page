@@ -10,7 +10,7 @@ function Icon({ icon, className = "" }) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`w-6 h-6 ${className}`}
+      className={className}
     >
       {icon}
     </svg>

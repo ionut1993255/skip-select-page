@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderButton from "./HeaderButton";
+import Button from "./Button.jsx";
 import Icon from "./Icon";
 import Divider from "./Divider";
 
@@ -61,11 +61,13 @@ function Header() {
     <header className="flex justify-center items-center mb-8 overflow-x-auto">
       {headerButtonData.map((button, index) => (
         <React.Fragment key={index}>
-          <HeaderButton
-            icon={<Icon icon={button.icon} />}
-            text={button.text}
-            disabled={button.disabled}
-          />
+          <Button disabled={button.disabled}>
+            <Icon icon={button.icon} className="w-6 h-6" />
+
+            <span className="ml-2 mr-[1rem] text-white text-[17px] font-semibold">
+              {button.text}
+            </span>
+          </Button>
 
           {index < headerButtonData.length - 1 && (
             <Divider color={index === 0 ? "#0037C1" : undefined} />
