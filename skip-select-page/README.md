@@ -70,6 +70,11 @@ These components are designed for flexibility and reuse throughout the app.
 
 The **utils** folder contains a file called `icons.jsx`, which is used throughout the app.
 
+## Demo
+
+You can view a live demo of the web page here: <a href="https://skip-options-page.netlify.app/">
+`https://skip-options-page.netlify.app/`</a>.
+
 ## Conclusion
 
 The **Skip Options Page** is a responsive and efficient web page built with modern technologies like `React`,
