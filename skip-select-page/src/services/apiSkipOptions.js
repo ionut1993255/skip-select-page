@@ -9,7 +9,5 @@ export async function fetchSkipOptions() {
 
   const skipOptionsData = await response.json();
 
-  console.log(skipOptionsData);
-
   return skipOptionsData;
 }
