@@ -22,7 +22,7 @@ function Footer() {
               <span className="text-xl font-bold text-[#0037C1]">
                 £{+price_before_vat}
               </span>
-              <span className="text-sm text-gray-400 ml-2">
+              <span className="text-sm text-gray-400 ml-2 font-semibold">
                 {hire_period_days} days
               </span>
             </div>
@@ -43,14 +43,16 @@ function Footer() {
           <div className="flex items-center gap-6">
             <div>
               <h3 className="font-medium"></h3>
-              <p className="text-sm text-gray-400">{size} Yards</p>
+              <p className="text-sm text-gray-400 font-semibold">
+                {size} Yards
+              </p>
             </div>
 
             <div className="flex items-center">
               <span className="text-2xl font-bold text-[#0037C1] mb-[.4rem]">
                 £{+price_before_vat}
               </span>
-              <span className="text-sm text-gray-400 ml-2">
+              <span className="text-sm text-gray-400 ml-2 font-semibold">
                 {hire_period_days} days hire
               </span>
             </div>

@@ -5,18 +5,20 @@ const SkipOptionsContext = createContext();
 
 function SkipOptionsProvider({ children }) {
   const [skipOptions, setSkipOptions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function getSkipOptions() {
       const skipOptionsData = await fetchSkipOptions();
       setSkipOptions(skipOptionsData);
+      setIsLoading(false);
     }
 
     getSkipOptions();
   }, []);
 
   return (
-    <SkipOptionsContext.Provider value={{ skipOptions }}>
+    <SkipOptionsContext.Provider value={{ skipOptions, isLoading }}>
       {children}
     </SkipOptionsContext.Provider>
   );

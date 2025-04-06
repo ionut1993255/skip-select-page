@@ -29,7 +29,7 @@ function SkipOptionsCard({ skipOption, isSelected, onClick }) {
           {size} Yards Skip
         </h3>
 
-        <p className="text-sm text-gray-400 mb-4 md:mb-6">
+        <p className="text-sm text-gray-400 mb-4 md:mb-6 font-semibold">
           {hire_period_days} days hire period
         </p>
 
@@ -39,7 +39,9 @@ function SkipOptionsCard({ skipOption, isSelected, onClick }) {
               £{+price_before_vat}
             </span>
 
-            <span className="text-sm text-gray-400 ml-2">per week</span>
+            <span className="text-sm text-gray-400 ml-2 font-semibold">
+              per week
+            </span>
           </div>
         </div>
 
