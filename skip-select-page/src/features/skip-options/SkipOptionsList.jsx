@@ -1,20 +1,18 @@
-import { useState } from "react";
 import { useSkipOptions } from "../../context/SkipOptionsContext";
+import { useSkipOptionSelection } from "../../context/SkipOptionSelectionContext";
 import SkipOptionsCard from "./SkipOptionsCard";
 
-function SkipOptionsList({ onToggleFooter }) {
+function SkipOptionsList() {
   const { skipOptions } = useSkipOptions();
-  const [selectedSkipOption, setSelectedSkipOption] = useState(null);
+  const { selectedSkipOption, selectSkipOption } = useSkipOptionSelection();
 
   function handleToggleSkipOption(skipOptionId) {
-    setSelectedSkipOption((prevSkipOptionId) => {
-      const newSkipOptionId =
-        prevSkipOptionId === skipOptionId ? null : skipOptionId;
+    const newSelectedSkipOption =
+      selectedSkipOption?.id === skipOptionId
+        ? null
+        : skipOptions.find((skipOption) => skipOption.id === skipOptionId);
 
-      onToggleFooter(newSkipOptionId);
-
-      return newSkipOptionId;
-    });
+    selectSkipOption(newSelectedSkipOption);
   }
 
   return (
@@ -23,7 +21,7 @@ function SkipOptionsList({ onToggleFooter }) {
         <SkipOptionsCard
           key={skipOption.id}
           skipOption={skipOption}
-          isSelected={selectedSkipOption === skipOption.id}
+          isSelected={selectedSkipOption?.id === skipOption.id}
           onClick={() => handleToggleSkipOption(skipOption.id)}
         />
       ))}

@@ -3,9 +3,8 @@ export async function fetchSkipOptions() {
     "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft",
   );
 
-  if (!response.ok) {
+  if (!response.ok)
     throw new Error("Failed to fetch skip options from the API!");
-  }
 
   const skipOptionsData = await response.json();
 

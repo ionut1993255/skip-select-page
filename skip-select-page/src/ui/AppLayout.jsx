@@ -1,26 +1,31 @@
-import { useState } from "react";
 import { SkipOptionsProvider } from "../context/SkipOptionsContext";
+import {
+  SkipOptionSelectionProvider,
+  useSkipOptionSelection,
+} from "../context/SkipOptionSelectionContext";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 
-function AppLayout() {
-  const [showFooter, setShowFooter] = useState(false);
-
-  function toggleFooterVisibility(selectedSkipOptionId) {
-    setShowFooter(!!selectedSkipOptionId);
-  }
+function AppLayoutContent() {
+  const { selectedSkipOption } = useSkipOptionSelection();
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <Header />
-
-      <SkipOptionsProvider>
-        <Main onToggleFooter={toggleFooterVisibility} />
-      </SkipOptionsProvider>
-
-      {showFooter && <Footer />}
+      <Main />
+      {selectedSkipOption && <Footer />}
     </div>
+  );
+}
+
+function AppLayout() {
+  return (
+    <SkipOptionsProvider>
+      <SkipOptionSelectionProvider>
+        <AppLayoutContent />
+      </SkipOptionSelectionProvider>
+    </SkipOptionsProvider>
   );
 }
 

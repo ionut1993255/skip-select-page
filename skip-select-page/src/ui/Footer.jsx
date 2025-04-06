@@ -1,3 +1,4 @@
+import { useSkipOptionSelection } from "../context/SkipOptionSelectionContext";
 import { icons } from "../utils/icons";
 import Button from "./Button";
 import Icon from "./Icon";
@@ -5,6 +6,11 @@ import Icon from "./Icon";
 const { arrowRight } = icons;
 
 function Footer() {
+  const { selectedSkipOption } = useSkipOptionSelection();
+  const { size, hire_period_days, price_before_vat } = selectedSkipOption;
+
+  if (!selectedSkipOption) return null;
+
   return (
     <footer className="fixed bottom-0 left-0 right-0 bg-[#1C1C1C] border-t border-[#2A2A2A] p-4 animate-slideUp z-50">
       <div className="max-w-7xl mx-auto">
@@ -13,8 +19,12 @@ function Footer() {
             <h3 className="font-medium"></h3>
 
             <div>
-              <span className="text-xl font-bold text-[#0037C1]">£</span>
-              <span className="text-sm text-gray-400 ml-2">7 days</span>
+              <span className="text-xl font-bold text-[#0037C1]">
+                £{+price_before_vat}
+              </span>
+              <span className="text-sm text-gray-400 ml-2">
+                {hire_period_days} days
+              </span>
             </div>
           </div>
 
@@ -33,14 +43,16 @@ function Footer() {
           <div className="flex items-center gap-6">
             <div>
               <h3 className="font-medium"></h3>
-              <p className="text-sm text-gray-400">6</p>
+              <p className="text-sm text-gray-400">{size} Yards</p>
             </div>
 
             <div className="flex items-center">
               <span className="text-2xl font-bold text-[#0037C1] mb-[.4rem]">
-                £
+                £{+price_before_vat}
               </span>
-              <span className="text-sm text-gray-400 ml-2">7 days hire</span>
+              <span className="text-sm text-gray-400 ml-2">
+                {hire_period_days} days hire
+              </span>
             </div>
           </div>
 
