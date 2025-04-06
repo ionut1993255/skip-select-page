@@ -1,6 +1,6 @@
 import SkipOptionsList from "../features/skip-options/SkipOptionsList";
 
-function Main() {
+function Main({ onToggleFooter }) {
   return (
     <main className="max-w-7xl mx-auto px-4 pb-32">
       <h2 className="text-2xl font-bold text-center mb-4">
@@ -11,7 +11,7 @@ function Main() {
         Select the skip size that best suits your needs
       </p>
 
-      <SkipOptionsList />
+      <SkipOptionsList onToggleFooter={onToggleFooter} />
     </main>
   );
 }
